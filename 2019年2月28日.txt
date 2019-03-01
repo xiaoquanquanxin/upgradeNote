@@ -1,0 +1,60 @@
+Linux
+服务器市场占用率极高
+命令行比windows强大
+发行版——将Linux内核与应用软件打包在一起:Ubuntu,redhat
+虚拟机环境
+
+命令行:
+ls:当前目录下的文件夹与文件
+dir:同上,但没有颜色区分
+ls -l:list形式的文件与文件夹,信息更多,包括访问权限,属于哪一个用户组\目录,文件大小,创建时间
+ls -a:在ls的基础上,额外显示隐藏文件
+cd:与windows相同
+mkdir:创建文件夹,make directory
+cp a.txt Desktop/a.txt:copy一份a.txt至Desktop下
+cp -R aaa bbb:R代表我要复制文件夹,aaa表示被复制的文件夹
+pwd:显示当前目录的全部路径,Print Working Directory
+rm a.txt:删除文件
+rm -r aaa:删除目录
+ifconfig:相当于windows下的ipconfig
+
+
+windows下命令行:
+呃呃呃我就不写了
+copy a.txt aaa:复制a.txt到aaa文件夹下
+del a.txt:永久删除,删除文件是有提示的
+rename a.txt b.txt:改名字
+
+
+
+
+
+
+web服务器基础原理
+用户百度访问
+1.请求网址,分析baidu这个域名对应的地址
+2.做分发:找到离我最近的,压力最小的一台服务器
+3.查询:主机器去查询,哪台服务器是最匹配的
+4.响应,返回数据给用户
+概念:
+负载:匹配最近的服务器,已达到最快的访问的速度
+
+对于本地:
+域名:localhost
+IP:127.0.0.1
+
+form表单提交到服务器上,服务器上可能有php
+
+
+两种服务器:
+IIS
+Apache
+
+
+
+
+
+
+
+
+
