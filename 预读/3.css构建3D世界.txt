@@ -1,0 +1,28 @@
+陀螺仪
+测试偏转角度的东西
+竖直alpha   0-360
+横向beta    -180-180
+垂直gamma   -90-90
+
+device_orientation 旋转角
+device_motion 加速信息
+compass_need_scalibration 通知使用罗盘矫正
+
+
+制作css3D世界的两种方案
+1.球面投影
+由多个小的平面组成一个立体的球体
+用transform去做
+
+
+2.正方形投影
+
+
+
+3D魔方
+
+这些我都懂.大学做过一年半的AE...
+
+
+
+
