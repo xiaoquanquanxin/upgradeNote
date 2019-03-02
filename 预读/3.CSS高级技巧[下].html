@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BFC</title>
+    <style>
+        body {
+            position: relative;
+        }
+        .fl {
+            float: left;
+            background-color: red;
+            width: 111px;
+            height: 111px;
+        }
+        .main {
+            background-color: orange;
+            height: 222px;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+<div class="fl"></div>
+<div class="main">
+    <div>
+        每个BFC之间的东西是相互独立的
+        每个BFC之间的东西是相互独立的
+        每个BFC之间的东西是相互独立的
+        每个BFC之间的东西是相互独立的
+        每个BFC之间的东西是相互独立的
+        每个BFC之间的东西是相互独立的
+        每个BFC之间的东西是相互独立的
+        每个BFC之间的东西是相互独立的
+        每个BFC之间的东西是相互独立的
+        每个BFC之间的东西是相互独立的
+        每个BFC之间的东西是相互独立的
+        每个BFC之间的东西是相互独立的
+        每个BFC之间的东西是相互独立的
+        每个BFC之间的东西是相互独立的
+        每个BFC之间的东西是相互独立的
+        每个BFC之间的东西是相互独立的
+        每个BFC之间的东西是相互独立的
+        每个BFC之间的东西是相互独立的
+    </div>
+</div>
+
+<div style="overflow: hidden;">
+    <p>默认margin</p>
+</div>
+<p>默认margin</p>
+</body>
+</html>

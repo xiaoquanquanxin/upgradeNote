@@ -1,0 +1,46 @@
+html5页面下设置
+html box-sizing:border-box
+*::before,*::after box-sizing:inherit
+
+cssicon.space/#/
+
+
+css hint 很重要
+https://kushagragour.in/lab/hint/
+1.不要连.,如.a.b.c
+2.不要没内容的css
+3.正确使用显示元素,如display:inline不要width,height
+4.少浮动,十次
+5.少字号,十种
+6.少字体,五种
+7.禁止id作为选择器
+8.标题元素只定义一次
+9.width:100%;是否有必要
+10.值为零不要有单位
+11.浏览器专属前缀规范
+12.避免使用像正则表达式一样的css选择器
+13.遵守盒模型规则
+
+
+BFC
+B-BOX
+FC-Formatting-Context 格式化上下文,用于决定如何渲染容器,以及与其他元素的相互作用
+会生成BFC的元素
+根元素
+float不为none的元素
+position为abs或fixed
+inline-block,table-cell,table-caption,flex,inline-flex
+overflow不为visible
+
+FC的规则
+每个BFC之间的东西是相互独立的
+margin box的左边与container 的border box的左面接触
+
+
+
+
+
+
+
+
+
