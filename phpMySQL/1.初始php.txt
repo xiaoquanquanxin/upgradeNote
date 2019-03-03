@@ -1,0 +1,21 @@
+php:超文本预处理器,开源脚本语言
+
+1.oop概念以及prototype
+
+
+2.php与js的区别
+
+
+
+安装这个xampp要成为超级管理员
+terminal下：su
+密码
+chmod -R 777 xampp-linux-x64-7.1.26-0-installer.run
+./xampp-linux-x64-7.1.26-0-installer.run
+
+切回普通用户
+su + 用户名
+
+
+超级多坑。。。
+xampp，新建的目录要放到htdocs下
