@@ -1,0 +1,28 @@
+css矩阵,matrix
+    [a11,a12
+    a21,a22]
+3D的矩阵是4x4的
+skew scale rotate translate
+斜拉              位移
+transform会把这四个值转为matrix
+transform:matrix(a,b,c,d,e,f)
+            默认 1,0,0,1,0,0
+
+[a,c,e   [x
+b,d,f  *  y
+0,0,1]    1]
+等于
+[ax+cy+e
+bx+dy+f
+0+0+1]
+
+
+如果你设置了非默认值中的某个参数,就会发生transform
+规则:
+e,f,位移
+a,d,缩放
+a,b,c,d 都设置,旋转
+b,c,斜拉
+
+
+
