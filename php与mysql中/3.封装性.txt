@@ -1,0 +1,26 @@
+1.设置私有成员与访问
+2.__set
+3.__get
+4.__isset
+5.__unset
+
+
+封装性：
+把对象的属性和方法加上修饰符，时期尽可能隐藏对象的内部细节，已达到对象成员的访问控制。
+封装的修饰符：
+public：共有的
+private：私有的
+protected：受保护的
+在class中使用这些关键字就能实现封装，private或protected成员无法在对象外部访问，只能在对象内部通过this访问。
+
+__set:
+魔术方法的set只针对私有变量或受保护的变量
+__get:
+同上
+
+private与protected对象在class外访问会报错，但如果设置了public function __get,则会被魔术方法监听。设置private或protected同__get。
+
+__isset:
+监听class外的isset方法
+__unset:
+同上
