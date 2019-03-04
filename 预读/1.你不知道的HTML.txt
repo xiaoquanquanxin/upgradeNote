@@ -33,29 +33,16 @@ img.onload
 
 
 
+cookie之间,浏览器是不允许共享的
+但是,互联网公司可以做共享,那就是为什么有各种广告
 
+form表单的action没有域名的限制,所以可能会跨站攻击
 
+localStorage保存单条数据超过2M,会出现新能问题,他的操作是同步的
+离线应用:把对应的js放到localStorage里,然后eval??
+indexedDB是一种关系型数据库,有50M的空间,他的操作时异步的
 
+设置同源策略,document.domain = 'xxx';
+但一般在服务器设置set-cookie key=value;domain=xxx
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+file协议,文件协议
