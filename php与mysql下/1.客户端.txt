@@ -1,0 +1,52 @@
+1.mysql -u root -p
+user username password
+2.show databases;
+显示所有库
+3.use db_test;
+切换某个库
+4.CREATE TABLE `db_test`.`table_name` (
+                默认库   创建的表
+5."-- ":注释
+
+
+筛选range:
+1.where birthday > xx and < xx
+2.where birthday between xx and xx
+
+匹配
+1.name='xxx' 完全匹配'xxx'
+2.name like 'xxx%' 模糊搜索'xxx',%在最后表示开始是xxx
+3.name like '%xx%' 模糊搜索'xxx',%xxx%表示只要含有xxx
+4.name like '%xxx' 模糊搜索'xxx',%在前面表示以xxx结尾
+
+排序:
+order by
+desc逆序
+asc顺序[默认]
+
+关联条件
+where t_student.class_id=t_class.class_id
+关联后有两个class_id,所以应该筛选字段
+select t_student.id,t_student.name,t_class.class_description
+from t_student,t_class
+where t_student.class_id=t_class.class_id
+另一种:
+select t_student.id,t_student.name,t_class.class_description
+from t_student left join t_class
+on t_student.class_id=t_class.class_id;
+
+
+
+
+其他:
+count
+min
+max
+sum 求和
+sqrt 平方根
+rand 随机数
+first 符合条件的第一个
+next 符合条件的下一个
+len 长度
+now 现在的时间
+concat 拼接字符串
