@@ -1,0 +1,29 @@
+1.传window:不怕修改,检索速度快
+2.传undefined:可以修改
+
+3.jq.fn.init与jq的原型相同,每次调用jq都new了init
+4.jq.extend将参数挂在在jq上,jq.fn.extend将参数挂在在 实例 或 原型上
+
+5.函数的重载:
+注册一个函数为两种参数状态下的情况还行
+我给一个对象的属性注册了三个函数,它们的参数分别是零个,一个,和两个
+为什么不会覆盖?
+我再调用零个参数的时候,他会不匹配我的参数,所以进入了else分支
+然后就会调用oldFn,那是我上一次注册的函数,这时又会进入第二次注册的函数
+再次判断,进入else分支,又会进入第一次注册的函数,找到无参数的函数
+弱点:传入参数与注册函数的形参完全不匹配时,就会报错
+function addReload(obj, key, fn) {
+        var oldFn = obj[key];
+        obj[key] = function () {
+            if (fn.length === arguments.length) {
+                return fn.apply(obj, arguments);
+            } else {
+                return oldFn.apply(obj, arguments);
+            }
+        }
+    }
+
+6.$.ready关于ie的实现:
+https://blog.csdn.net/qq814374557/article/details/75330354
+7.设计模式
+https://blog.csdn.net/qq_21201143/article/details/79752377
