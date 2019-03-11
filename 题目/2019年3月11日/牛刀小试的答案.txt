@@ -1,0 +1,101 @@
+1.undefined
+2.in
+3.undefined
+4.返回1
+5.1function
+6.false
+7.a
+8.yideng
+9.报错
+10.
+
+11.2
+12.[1,1,1]
+13.label,break:label 或 try throw catch
+14.定义consooe
+15.
+
+16.true
+17.
+
+18.yidenga是undefined,yidengb是0
+19.10,0
+20.false,解析不一样
+21.3,3
+22.object,false
+23.aaaaaaaaaab
+24.21
+25.21
+26.yideng2
+27.
+
+28.undefined
+29.4,3
+30.
+
+31.0??
+
+
+
+/------2019年3月11日23:36:22再次答题
+
+
+1.this指向arguments，故undefined
+2.浏览器不一致，老式浏览器为in，多数现代浏览器为out，极少数test is not a function
+3.x指向undefined，故undefined
+4.return 1
+5.1function
+6.return的是一个对象，new f() === f，故false
+7.Person.prototype上没有，找Object.prototype，故a
+8.[0].valueof == 0，故yideng
+9.没分号，return undefined，故报错
+10.写成一个generator
+
+11.报错，打印2
+12.map忽略undefined，打印['1']
+13.label? try...catch?
+
+14.定义consooe，然后try...catch??
+
+15.
+
+16.[[[2]]].valueOf == 2，故true
+17.
+
+18.yidenga == 构造函数的length，yidengb == fn实例的形参的个数
+19.this指向window，打印10 。this指向arguments，他的length是实参的个数2
+20.解析时间的格式不一样
+21.两个3
+22.object,false
+23.aaaaaaaaa
+24.10+1+10 = 21
+25.我认为同上
+26.这又是个老式浏览器的问题
+27.
+
+28.this指向big，故undefined
+29.this指向arguments，length = 实参个数4，callee.length是形参个数3
+30.会warn yideng2
+31.0,0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
