@@ -1,0 +1,9 @@
+这个我以前做过相当完善的笔记，详情移步
+https://github.com/xiaoquanquanxin/ES6.git
+
+值得注意：
+1.babel只转换句法，不转换新API。就是转换let，for循环，不转换Generator，await
+2.shim是一个库，他将新的API引入到旧的环境中
+3.polyfill是一个插件，提供浏览器需要支持但没有支持的功能
+4.polyfill是应用在API上的shim，先判断浏览器是否支持某API，如果不支持，就加载polyfill
+5.css polyfill
