@@ -1,0 +1,47 @@
+2.
+this.a = 20;
+var test = {
+		a:40,
+        init(){
+			console.log(this.a);
+			function go() {
+                console.log(this.a)
+			}
+        	go.prototype.a = 50;
+			return go;
+        }
+    }
+var p = test.init();
+p();
+new p();
+new test.init();
+新写法的函数init，或者箭头函数，都不能被new，但是赋值给变量是可以被new的。
+新写法的函数有自己的this，箭头函数没有自己的this。
+
+
+5.
+function fn(){
+    console.log(1)
+}
+if(false){
+    function fn(){
+        console.log(2)
+    }
+}
+fn()
+这个打印，因浏览器而异
+老浏览器会认为打印2的声明提升了，新浏览器认为不应该提升，极少数浏览器之将fn这个标识符提升了，函数体没提升
+
+
+
+8.es6是es5的语法糖：
+class B extends A{
+    constructor(){
+        super();
+        super.xx = xx
+    }
+}
+B.prototype.xxx = function(){}
+当然，你必须先调用super。
+不调用super，super就指向实例。
+class实质上是function，所以修改他的prototype的属性也会被实例继承。prototype是A的一个实例。

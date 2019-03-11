@@ -5,3 +5,7 @@
 
 暂时没有用xmind
 值得记录的都会写html,html可能会中文名,因为只是为了log
+
+笔记只记录知识点
+我的代码都在
+https://github.com/xiaoquanquanxin/yidengcode.git
