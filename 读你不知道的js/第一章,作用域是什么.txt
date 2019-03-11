@@ -1,0 +1,27 @@
+编译原理
+1.词法分析,将var a = 1;分成五个有意义的部分
+2.语法分析,创建抽象语法树ast,把五个部分当做节点
+3.代码生成,将ast转为一组机器指令,分配内存,用来创建变量a,并将1储存在a中
+
+lhs和rhs:都是针对变量的解析
+lhs:为了赋值
+rhs:为了取值
+function foo(a){
+console.log(a);
+}
+foo(2);
+声明的过程:
+对foo进行声明,function foo
+在调用函数时,对a进行声明,var a;
+调用的过程:
+对foo进行rhs引用
+对a进行lhs引用,a = 2;
+对a进行rhs引用,console.log(a);
+
+异常:
+referenceError:对于找不到的变量
+rhs会报错referenceError
+lhs会在顶级作用域下创建变量,在use strict下,会报错ReferenceError
+typeError:作用域判别正常,但是操作不合法
+null.name
+
