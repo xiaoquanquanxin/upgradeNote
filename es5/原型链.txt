@@ -1,0 +1,20 @@
+var fn = function fff() {
+    可以访问fff,但不可改
+};
+
+创建函数fn时,会以Function为constructor,
+以一个属性为constructor:fn的对象为原型对象,
+new出来函数fn
+
+fff是只读的,只能在函数体内访问
+函数的名字是fff,如果没有,就取表达式标识符的名字
+fn可以指向别的函数,指向后名字变成指向后的函数的名字
+匿名函数的name取anonymous
+
+fn.constructor === Function
+Function.constructor === Function
+fn.__proto__ === Function.prototype === Function.__proto__  === f () { [native code] }
+Function.prototype.constructor === Function
+Function.prototype.prototype === undefined
+Function.prototype.__proto__ === Object.prototype
+fn.prototype === {constructor:fn}
