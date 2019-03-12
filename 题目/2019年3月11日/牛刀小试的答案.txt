@@ -41,7 +41,7 @@
 
 
 1.this指向arguments，故undefined
-2.浏览器不一致，老式浏览器为in，多数现代浏览器为out，极少数test is not a function
+2.浏览器不一致，老式浏览器为in，多数现代浏览器test is not a function ,ie11,ff和chrome就是这样,极少数为out
 3.x指向undefined，故undefined
 4.return 1
 5.1function
@@ -74,7 +74,7 @@
 27.
 
 28.this指向big，故undefined
-29.this指向arguments，length = 实参个数4，callee.length是形参个数3
+29.this指向arguments，length = 实参个数4，callee.length是形参个数1
 30.会warn yideng2
 31.0,0
 
@@ -82,20 +82,23 @@
 
 
 
+/------------错误log
+3.typeof y 确实是undefined,但是是一个字符串'undefined'
+8.if里转为布尔值,而且[0].valueOf也是它本身
+10.??
+12.map不忽略undefined,只忽略空 empty,会原样输出empty位
+13.??
+14.??
+15.结合性,左结合1 < 2 < 3,先判断1 < 2 , 再判断true < 3
+16.虽然做对了,但是[2].valueOf还是它本身,tostring才是'2'
+17.??
+18.虽然做对了,但是Function.length === 1
+19.虽然做对了,但是new Date(2018,1,1),传入数字,中间的月从零算起
+20.为什么let和var不一样??
+23.maxlength只限制输入,不限制value=xxx
+24.当非严格模式中的函数包含...rest,默认参数,解构赋值时,形参不会与arguments绑定
+27.Math.min() === +Infinity , Math.max() === -Infinity
+30.使用new Function创建的函数，其[[Environment]]引用全局词法环境，而不是包含该函数的外部词法环境
+31.普通的打印是[object object],求表达式的值是{}相当于没有,+是正号,[]是'', +'',转为0
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+...
