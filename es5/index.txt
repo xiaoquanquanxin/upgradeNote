@@ -18,3 +18,10 @@ arguments
 with
 
 3.jq源码
+工厂函数,自行new $.prototype.init
+重载函数 addReload(obj,key,fn)
+extend,实例和静态方法
+pushStack,记录前一个实例,返回一个新实例
+链式调用
+观察者模式,trigger就是emit
+
