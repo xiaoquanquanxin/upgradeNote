@@ -8,9 +8,11 @@ transform会把这四个值转为matrix
 transform:matrix(a,b,c,d,e,f)
             默认 1,0,0,1,0,0
 
-[a,c,e   [x
-b,d,f  *  y
-0,0,1]    1]
+
+a c e  x
+b d f  y
+0 0 1  1
+
 等于
 [ax+cy+e
 bx+dy+f
@@ -24,5 +26,7 @@ a,d,缩放
 a,b,c,d 都设置,旋转
 b,c,斜拉
 
+gulp或webpack，有插件可以直接转transform至matrix
+设置bazier曲线，x，和y，可以一个线性，一个bazier曲线，就是有曲线的移动效果
 
 
