@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BFC.IFC,GFC,FFC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            background-color: rgb(224, 206, 247);
+            border: 5px solid rebeccapurple;
+            overflow: auto;
+        }
+        .float {
+            float: left;
+            width: 200px;
+            height: 150px;
+            background-color: white;
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="float">I am a floated box!</div>
+    <p>I am content inside the container.</p>
+</div>
+
+<p>block formatting context是块盒子布局过程发生的区域，也是浮动元素与其他元素交互的区域。</p>
+<p>创建bfc：</p>
+<ol>
+    <li>根元素或包含根元素的元素</li>
+    <li>浮动元素</li>
+    <li>绝对定位元素</li>
+    <li>abs定位或fixed定位</li>
+    <li>行内块级元素inline-block</li>
+    <li>表格table-cell,table-cation</li>
+    <li>匿名表格单元格元素table,table-row,table-row-group,table-header-group,table-footer-group,inline-table</li>
+    <li>overflow可见</li>
+    <li>display:flow-root,一个新的 display 属性的值，它可以创建无副作用的BFC</li>
+    <li>弹性盒子,flex,inline-flex</li>
+    <li>网格元素,grid,inline-grid</li>
+    <li>多列容器,column-count,column-with不是auto</li>
+    <li>column-span 为 all 的元素</li>
+</ol>
+<p>使用overflow来创建新的BFC是，overflow让浏览器知道你希望的处理溢出内容的方法。对于后续的开发，可能不是很清楚当时为什么使用overflow。所以你最好添加一些注释来解释为什么这样做。</p>
+
+<hr>
+<style>
+    .blue, .red-inner {
+        height: 50px;
+        margin: 10px
+    }
+    .blue {
+        background: blue;
+    }
+    .red-outer {
+        overflow: hidden;
+    }
+    .red-inner {
+        background: red;
+    }
+</style>
+<div class="blue"></div>
+<div class="red-outer">
+    <div class="red-inner">red inner</div>
+</div>
+<hr>
+<style>
+    .root-out {
+        display: flow-root;
+        border: 5px solid orange;
+    }
+    .root-inner {
+        height: 44px;
+        background: red;
+        float: left;
+    }
+</style>
+<div class="root-out">
+    <div class="root-inner">inner inner inner inner</div>
+    out out out out out out
+</div>
+<hr>
+<style>
+    .over-out {
+        height: 111px;
+        background-color: red;
+        overflow: auto;
+    }
+    .over-inner {
+        height: 22px;
+        width: 22px;
+        background-color: yellow;
+        float: left;
+    }
+</style>
+<div class="over-inner">fer</div>
+<div class="over-out">feawfaeafaef</div>
+
+</body>
+</html>
