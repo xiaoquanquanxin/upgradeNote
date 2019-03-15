@@ -104,3 +104,11 @@
 ...
 
 10,13,14,17,21
+
+21
+为什么babel转完以后不对？
+	(function () {
+		for (let i = (setTimeout(() => console.log('a', i)), 0); setTimeout(() => console.log('b', i)), i < 2; i++) {
+			i++;
+		}
+	}());
