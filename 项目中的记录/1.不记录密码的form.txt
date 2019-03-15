@@ -1,0 +1,5 @@
+各种资料查了,都有bug
+经过研究发现,浏览器的name属性是填充记录的充分条件,无论text还是password
+我的做法:
+所有需要name的input都不加name属性,换成比如replacename
+在各种逻辑判断成功以后,提交前的最后再重置为name
