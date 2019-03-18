@@ -1,57 +1,58 @@
 <meta charset="UTF-8">
 <script>
-    //  快速排序
-    function qu(arr) {
-        if (arr.length <= 1) {
-            return arr;
-        }
+	//  快速排序
+	function qu(arr) {
+		if (arr.length <= 1) {
+			return arr;
+		}
 
-        var index = Math.floor(arr.length / 2);
-        var middle = arr[index];
-        var left = [];
-        var right = [];
+		var index = Math.floor(arr.length / 2);
+		var middle = arr[index];
+		var left = [];
+		var right = [];
 
-        for (var i = 0; i < arr.length; i++) {
-            if (arr[i] < middle) {
-                left.push(arr[i]);
-            } else if (arr[i] > middle) {
-                right.push(arr[i]);
-            }
-        }
-        return qu(left).concat([middle]).concat(qu(right));
-    }
+		for (var i = 0; i < arr.length; i++) {
+			if (arr[i] < middle) {
+				left.push(arr[i]);
+			} else if (arr[i] > middle) {
+				right.push(arr[i]);
+			}
+		}
+		return qu(left).concat([middle]).concat(qu(right));
+	}
 
-    var arr = [];
-    for (var i = 0; i < 10; i++) {
-        arr.push(Math.random())
-    }
-    console.time('kuai');
-    var brr = qu(arr);
-    console.timeEnd('kuai');
+	var arr = [];
+	for (var i = 0; i < 10; i++) {
+		arr.push(Math.random())
+	}
+	console.time('kuai');
+	var brr = qu(arr);
+	console.timeEnd('kuai');
 </script>
 <script>
-    function xier(arr) {
-        var N = arr.length;
-        var h = 1;
-        while (h < N / 3) {
-            h = 3 * h + 1;//设置间隔
-        }
-        while (h >= 1) {
-            for (var i = h; i < N; i++) {
-                for (var j = i; j >= h && arr[j] < arr[j - h]; j -= h) {
-                    var temp = arr[j - h];
-                    arr[j - h] = arr[j];
-                    arr[j] = temp;
+	function xier(arr) {
+		var N = arr.length;
+		var h = 1;
+		while (h < N / 3) {
+			h = 3 * h + 1;//设置间隔
+		}
+		while (h >= 1) {
+			for (var i = h; i < N; i++) {
+				for (var j = i; j >= h && arr[j] < arr[j - h]; j -= h) {
+					var temp = arr[j - h];
+					arr[j - h] = arr[j];
+					arr[j] = temp;
 
-                }
-            }
-            console.log(h);
-            h = (h - 1) / 3;
-        }
-        return arr;
-    }
-    console.time('xier');
-    var crr = xier(arr);
-    console.timeEnd('xier')
+				}
+			}
+			console.log(h);
+			h = (h - 1) / 3;
+		}
+		return arr;
+	}
+
+	console.time('xier');
+	var crr = xier(arr);
+	console.timeEnd('xier')
 </script>
 <script src="难题js/第十题.js"></script>
