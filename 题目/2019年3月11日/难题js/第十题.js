@@ -36,7 +36,6 @@ let c = () => timeout(ctime).then(() => {
 
 
 let slice = [].slice;
-
 function mymerge(arr) {
 	mymerge.arr = mymerge.arr || [];
 	if (arr.length) {
