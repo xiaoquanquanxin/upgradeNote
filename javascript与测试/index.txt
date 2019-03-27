@@ -1,0 +1,19 @@
+1.单元测试
+2.性能测试
+3.安全测试
+4.功能测试
+5.UI还原测试
+
+1.单元测试
+单元测试的流程，术语：mock，就是mock数据的那个mock
+before：单个测试开始前
+beforeEach
+it：定义测试用例，利用断言库进行设置
+after
+afterEach
+
+断言库：
+1.测试驱动开发，tdd，test driven development，先整测试，根据测试用例去写东西
+2.行为驱动开发，bdd，behavior driven development，先做功能，然后测试（常规）
+
+
