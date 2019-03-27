@@ -79,6 +79,7 @@ rxjs
 看obeserver文档
 underscore
 loadsh.js
+ramdajs
 
 
 
