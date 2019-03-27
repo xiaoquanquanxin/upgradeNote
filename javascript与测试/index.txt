@@ -12,8 +12,21 @@ it：定义测试用例，利用断言库进行设置
 after
 afterEach
 
-断言库：
+测试模式：
 1.测试驱动开发，tdd，test driven development，先整测试，根据测试用例去写东西
 2.行为驱动开发，bdd，behavior driven development，先做功能，然后测试（常规）
+断言库：
+用来测试的库
+jasmine.js,bdd
+char.js,两种模式
+macaca，来自阿里，完整的自动化测试解决方案
+
+集成框架：karma,别用windows！！
+npm install --save-dev karma
+npm install -g karma-cli
+如果phantomjs没有，一定要装
+npm install karma-phantomjs-launcher --save-dev
+配置路径要小心，注意basePath: 'tests',
+
 
 
