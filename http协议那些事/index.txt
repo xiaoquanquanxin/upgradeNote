@@ -84,11 +84,21 @@ rest协议：严格遵守get，post，put，delete
 4.options查询服务器的性能，或者查询与资源相关的选项和需求
 
 七：header分析
-general:请求行，响应行
-request header：请求报头
-response header：响应报头
+1.general:请求行，响应行
+2.request header：请求报头
+accept:可以接受的数据
+accept-encoding：接受压缩?：
+cache-control：控制缓存
+connection：是否支持长连接
+cookie:
+
+3.form data：请求正文
+4.response header：响应报头
+可以自定义头
+和request header对应一部分
+content-type：返回的类型，以及字符集编码
+
 response标签：响应正文
-form data：请求正文
 
 
 八：状态码
