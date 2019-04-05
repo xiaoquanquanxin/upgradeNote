@@ -1,0 +1,6 @@
+nodeJs的REPL环境
+REPL：交互式解释器，就是直接敲node命令，就进入了node执行环境
+命令：
+ctrl+d，linux下退出node REPL
+
+包查找npm search +包名
