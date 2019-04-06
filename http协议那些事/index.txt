@@ -208,6 +208,32 @@ h2是h1的拓展，但是h3不是h2的拓展
 7.外网发布，对外提供统一的80端口或者443端口
 
 
+十四.ngnix
+ngnix是反向代理的东西，开源的
+安装：不建议源码编译
+https://www.cnblogs.com/lauren1003/p/5985206.html
+https://www.jianshu.com/p/0626bbd975f3
+安装好，找配置文件，默认是etc/nginx，打开nginx.conf
+'#' 是注释
+user 启动用户
+worker_processes 1就行了，不要太多，消耗资源多，cpu核心数量有关
+error_log 日志
+pid 生成pid文件，给服务脚本使用
+events 一个工作进程所能处理的并发数
+
+配置转发：
+upstream web_crm 定义转发规则
+
+要改的地方
+location /crm/{
+    proxy_pass 本地的8080端口下
+}
+
+配置负载均衡：
+
+
+
+
 
 
 长连接：
