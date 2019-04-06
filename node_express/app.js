@@ -23,7 +23,7 @@ app.get('/render', function (req, res) {
 //  静态资源
 app.use(express.static('public'));
 app.get('/static', function (req, res) {
-	res.send('hello node');
+	res.sendFile( __dirname + "/views/" + "index.html" );
 });
 const server = app.listen(8081, function () {
 	const host = server.address().address;
