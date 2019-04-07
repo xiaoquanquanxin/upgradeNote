@@ -2,3 +2,15 @@
 路由一般是controller
 一个controller对应多个action
 一个路由可以设置多个回调函数，其行为类似于中间件，他的next可以始终执行，无论之前客户端是否被输出，但这并不意味着可以有复数个res.send()
+
+
+响应方法:
+res.download()	        提示下载文件。
+res.end()	            结束响应过程。
+res.json()	            发送JSON响应。
+res.jsonp()	            使用JSONP支持发送JSON响应。
+res.redirect()	        重定向请求。
+res.render()	        渲染视图模板。
+res.send()	            发送各种类型的回复。
+res.sendFile()	        将文件作为八位字节流发送。
+res.sendStatus()	    设置响应状态代码并将其字符串表示形式作为响应主体发送。
