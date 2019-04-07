@@ -22,6 +22,34 @@ const app = new express();
 }());
 
 
+(function () {
+	//  由于路径是在单个位置指定的，因此创建模块化路由很有帮助，同时减少冗余和拼写错误
+	app.route('/book')
+		.get(function (req, res) {
+			res.send('Get a random book')
+		})
+		.post(function (req, res) {
+			res.send('Add a book')
+		})
+		.put(function (req, res) {
+			res.send('Update the book')
+		});
+}());
+
+const router = express.Router();
+
+(function () {
+	//  模块化
+	router.use(function (req, res, next) {
+		next();
+	});
+	router.get('/', function (req, res) {
+		res.send('1');
+	});
+	module.exports = router;
+}());
+
+
 const server = app.listen(8081, function () {
 	const host = server.address().address;
 	const port = server.address().port;
