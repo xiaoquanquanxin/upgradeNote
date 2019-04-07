@@ -12,6 +12,7 @@ supervisor app.js
 2.app listen port
 3.设置路由，吐出数据
 这是涉及到一个叫restful是一组架构约束条件和原则。
+http://www.runoob.com/nodejs/nodejs-restful-api.html
 一种软件架构风格、设计风格，而不是标准，
 只是提供了一组设计原则和约束条件。
 它主要用于客户端和服务器交互类的软件。
