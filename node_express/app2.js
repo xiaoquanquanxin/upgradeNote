@@ -12,6 +12,7 @@ app.get('/index/:id', function (req, res, next) {
 	req.data = 123;
 	// next('route');
 	next();
+	console.log(1111111111111111111111111111111111111)
 }, function (req, res, next) {
 	console.log(req.data, 111);
 	// next();
