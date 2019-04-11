@@ -1,0 +1,4 @@
+Swig 使用指南
+http://www.cnblogs.com/elementstorm/p/3142644.html
+
+模板可以继承，里面有block，可以重写block，可以接收前端的data，有if else ，for...in
