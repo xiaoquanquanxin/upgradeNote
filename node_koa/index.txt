@@ -20,3 +20,29 @@ koa应用：
 
 
 
+content上下文：
+以前express框架是在中间件中直接就暴露了request和response。
+Koa Context 将 node 的 request 和 response 对象封装到单个对象中，为编写 Web 应用程序和 API 提供了许多有用的方法。
+每个 请求都将创建一个 Context，并在中间件中作为接收器引用，或者 ctx 标识符。
+
+避免使用原生node属性：!!!!!!!!!!!!!!!!!!!!!!
+绕过 Koa 的 response 处理是 不被支持的. 应避免使用以下 node 属性：
+res.statusCode
+res.writeHead()
+res.write()
+res.end()
+
+
+Request 别名
+Response 别名
+都是方便访问的别名，可以少写个ctx.response或ctx.request
+
+
+注意：
+this !== ctx
+ctx.res 是真正的原生的response
+ctx.response是koa 的 Response 对象
+
+
+response：
+etag和lastModified，都是对文件进行强缓
