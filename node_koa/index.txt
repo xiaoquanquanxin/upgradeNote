@@ -46,3 +46,8 @@ ctx.response是koa 的 Response 对象
 
 response：
 etag和lastModified，都是对文件进行强缓
+
+
+小etg：
+yo koa可能会报错
+npm install 一下，就会把需要依赖的依赖项加载进去
