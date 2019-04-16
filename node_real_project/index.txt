@@ -1,0 +1,5 @@
+1.操作mysql数据库的依赖：mysql
+2.orm,不需要写sql的依赖，连接数据库就行
+3.request-promise,使异步请求变成promise形式，then()
+
+generator-koa
