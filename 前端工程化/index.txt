@@ -213,6 +213,33 @@ amd,cmd
 
 
 
+什么是持续集成？
+ci，本机写代码，上传到svn或git，编译，测试，到开发的机器上，再到测试的机器上
+持续交付，cd，
+持续部署，cd，很少，提交代码到发布线上是全自动的
+Jenkins可以给微信发消息
+需要的工具
+1.统一代码仓库通过分支管理合并主干SVN。
+2.自动化构建工具，编译、部署、测试、监控、本机、开发上线环境。
+FIS3/Webpack/jdists/package.json/chai/supertest/mocha/selenium-webdriver
+3.持续集成平台。Jenkins、Travis CI
+4.部署工具。rsync、shelljs、yargs
+5.运营同学有权限操作运营页面保存即可上线。
+
+什么是统一代码仓库
+svn为例，别的我都明白
+tag，为了回滚
+没人能动trunk，主分干
+
+写shell
+
+
+什么是前端工程化
+什么是自动化构建
+解放更多劳动力的自动化
+
+
+
 
 
 
