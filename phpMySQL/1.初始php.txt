@@ -12,6 +12,7 @@ terminal下：su
 密码
 chmod -R 777 xampp-linux-x64-7.1.26-0-installer.run
 ./xampp-linux-x64-7.1.26-0-installer.run
+opt/lampp/manager-linux-x64.run
 
 切回普通用户
 su + 用户名
