@@ -89,6 +89,7 @@ io密集型：io是输入输出，密集是网络，磁盘操作相关
 免密登录：
 正常流程：
 ssh了
+ssh root@192.168.199.116
 输入密码
 
 免密登录：
@@ -122,8 +123,9 @@ rsa是加密算法
 
 第二步
 上传配置公钥
-/root/xxxx
-/home/quanxin
+/root/.ssh/
+/home/quanxin/.ssh/
+放秘钥或公钥
 
 上传公钥
 ssh-copy-id -i "mykey.pub" root@192.168.0.0
@@ -131,9 +133,11 @@ root@192.168.0.0是啥？？
 因为是第一次登录
 yes
 输入登录密码
-ssh xx@192... -i mykey
+ssh xx@192.168.199.116 -i mykey
 就直接登录上了
-
+我直接登录成功的命令：
+在root权限下：
+ssh quanxin@192.168.199.116 -i mykey
 
 
 切换服务器：
