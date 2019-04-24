@@ -1,0 +1,39 @@
+1.下载yii框架
+2.把yii直接拷贝到文件夹，直接引用他的结构
+3.留下config，controller，model，测试，components，删了大部分
+4.启动文件app.js
+5.
+
+...
+log4js
+
+
+
+将来要一直改版
+从面向对象改成ioc的
+
+在middleware list里找中间件
+
+swig模板，已经很完美了，不更新了
+
+csr出错了，页面会出一堆{{}}
+ssr出错没事
+
+
+
+1.基础的mvc
+2.构建于项目的内容
+3.工程化的推进，ci gulp ， rollup
+4.工程化的前后端分离，webpack
+5.mvc改革 改成基于di 的 ioc的
+6.css进化，改成现代化的css
+7.性能优化
+
+=====入门====了======
+typescript原理，react vue webpack koa
+vue ssr
+
+算法 LeetCode
+
+
+
