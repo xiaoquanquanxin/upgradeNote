@@ -1,0 +1,30 @@
+1.安装Jenkins
+Jenkins是java写的
+只需要装普通的就行了，环境需要jre，不需要jdk
+yum install -y jenkins就行了
+有一个页面是装插件，可以全装，也可以后期加插件
+口令必须记住
+配置推荐
+端口：他默认是8080，建议NGINX转发,
+启动：systemctl status jenkins
+
+00:41:00
+
+
+00:48:00
+github plugin安装:git plugin
+邮件：e-mail notification  SMTP协议，专门用来发邮件的协议
+有坑
+
+
+课半
+创建自由风格
+
+填写github的路径
+服务器url
+
+build triggers触发器
+可以监听master分支，一旦有merge，就开始构建
+
+01:51:00
+流程
