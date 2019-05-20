@@ -1,0 +1,1 @@
+node的外部缓存软件redis,memcached
