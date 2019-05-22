@@ -1,0 +1,6 @@
+npm install -g typescript
+后C:\Users\Administrator\AppData\Roaming\npm下有一个tsc
+
+编译：
+webstorm添加watcher，自动编译
+tsc app.ts
