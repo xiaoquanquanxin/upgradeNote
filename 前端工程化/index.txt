@@ -1,0 +1,330 @@
+1.ssh 远程登录，不加域名
+
+40:00:00
+远程登录,windows linux
+44:00:00
+linux
+48:00:00
+第一次输入命令登录并讲解
+root@192.xxx
+输入完密码，最前面的东西变了，就是成功了
+
+50:00:00
+重要的，常用的命令
+1.文本编辑
+vm或vim，vim是升级版
+vm是大小写敏感的
+刚进去是只读界面，是浏览模式，我应该切换模式
+i ：插入模式 insert
+esc：退出插入模式，进入浏览模式
+q ：退出 quit
+可能会出现错误：如果我修改了文件，直接退出就会报错
+wq：保存并退出
+q!：直接退出，不保存
+delete键：删除字符
+
+只读模式下/+关键字 == find
+n：下一个关键字
+
+
+
+
+进程与服务
+服务是windows里面的后台，一直不退出的东西，需要一些接口提供访问
+linux 里也叫服务，也叫守护进程，也没有图形界面，只能通过命令等手段，或socket端口进行交互
+这些服务会随着系统的存在而存在，消失而消失，一般不能随便服务的关闭，因为有一些程序依赖这些东西
+
+
+1:08:00进程
+进程一般是可控的,可以控制生命周期
+kill：杀掉进程
+pid：进程编号，每个进程都有自己的，杀要杀小的
+
+
+macOs下：launchctl
+linux：systemctl
+
+systemctl status xxx
+systemctl start xxx
+
+
+
+查看linux命令的帮助
+man ip
+
+
+
+
+
+课半
+linux有六大子系统
+进程里至少有一个线程
+
+
+多任务操作系统，凭什么可以多任务，凭借多线程
+多个cpu使得程序看上去像同时执行
+
+单核cpu下：一个程序占用了一个cpu，其他程序只能休眠
+多核cpu下：也会一直调度，因为程序一般比cpu核心数多
+
+
+操作系统能直接调度线程和进程
+线程，操作系统能调度的最小单位
+进程里有一个或多个线程
+线程各司其职，由一个调度算法去控制
+
+以前没有线程和进程这样的概念
+但是有cpu密集型和io密集型
+cpu密集型对cpu的性能要求高，比如运算
+io密集型：io是输入输出，密集是网络，磁盘操作相关
+
+协程：更轻量级的线程，用固态
+
+
+进程与线程的资源共享
+单线程进程下：需要代码，数据，文件，很占资源
+多线程进程下：共享代码，数据，文件，节约资源
+
+
+免密登录：
+正常流程：
+ssh了
+ssh root@192.168.199.116
+输入密码
+
+免密登录：
+需要不对称加密，安全强度高很多
+注意:
+00:27:00
+需要配置别名，配置完别名后，只需要ssh alis
+如果没有配置别名，需要 ssh root@192.xxx /私钥文件
+00:41:00
+步骤：
+第一步
+00:42:00
+生成秘钥，分公钥和私钥，锁头是公钥，钥匙是私钥
+创建目录
+mkdir xxxx
+cd xxxx
+ssh-keygen -t rsa -C '你的名字' -f '你的名字_rsa'
+rsa是加密算法
+其中，你的名字是一个字符串,会嵌入密钥文件里
+生成的私钥文件没有后缀
+公钥文件有后缀.puh
+第二个你的名字，老师写的是mykey
+回车
+有提问：
+!!!!!!!!!!!!!!!!
+要不要给秘钥加密码？不要，直接回车
+确认？回车
+就出来个 rsa 2048 table
+秘钥对就生成好了
+公钥有后缀.puh
+
+第二步
+上传配置公钥
+/root/.ssh/
+/home/quanxin/.ssh/
+放秘钥或公钥
+
+上传公钥
+ssh-copy-id -i "mykey.pub" root@192.168.0.0
+root@192.168.0.0是啥？？
+因为是第一次登录
+yes
+输入登录密码
+ssh xx@192.168.199.116 -i mykey
+就直接登录上了
+我直接登录成功的命令：
+在root权限下：
+ssh quanxin@192.168.199.116 -i mykey
+
+
+切换服务器：
+ssh xx@192.168.0.0
+
+第三步：
+检查生成私钥的权限是不是600？rw,安全性问题
+最好放在工作电脑的自己账户名下的.ssh目录中
+
+第四步：
+配置文件
+Host evil-cloud要登的服务器
+User root 登录用户
+HostName Ip或绑定的域名
+IndentityFile ~/.ssh/evilbay_rsa 没听到
+后面的照抄
+
+多主机配置
+01:10:00
+windows 有坑
+01:13:00
+
+------------------------------
+# 多主机配置
+Host gateway-produce
+HostName IP或绑定的域名
+Port 22
+Host node-produce
+HostName IP或绑定的域名
+Port 22
+Host java-produce
+HostName IP或绑定的域名
+Port 22
+
+Host *-produce
+User root
+IdentityFile ~/.ssh/produce_key_rsa
+Protocol 2
+Compression yes
+ServerAliveInterval 60
+ServerAliveCountMax 20
+LogLevel INFO
+
+#单主机配置
+Host evil-cloud
+User root
+HostName IP或绑定的域名
+IdentityFile ~/.ssh/evilboy_rsa
+Protocol 2
+Compression yes
+ServerAliveInterval 60
+ServerAliveCountMax 20
+LogLevel INFO
+
+#单主机配置
+Host git.yideng.site
+User git
+IdentityFile ~/.ssh/evilboy_rsa
+Protocol 2
+Compression yes
+ServerAliveInterval 60
+ServerAliveCountMax 20
+LogLevel INFO
+---------------------
+我的配置
+Host james
+User root
+HostName 192.168.199.116
+IdentityFile ~/.ssh/mykey
+Protocol 2
+Compression yes
+ServerAliveInterval 60
+ServerAliveCountMax 20
+LogLevel INFO
+
+
+2019年4月17日20:09:26
+第二节
+ps命令，看当前进程
+ps aux命令，详细进程
+
+
+
+根目录下，目录的意义
+boot：有一些img文件，有的img文件是内核文件
+
+
+文件系统：
+系统目录root，所有文件都是文件
+boot目录：里面是引导文件
+home:普通用户的目录
+
+命令的基本格式
+命令 选项 参数
+etg：
+ls命令：ls -a *.ini
+-a是选项，有时也叫选项开关
+*.ini是参数
+drwxrwxrwx
+-r--------
+d是什么？是目录，-是普通文件,b是块文件，l是连接文件，相当于快捷放肆，连接文件有两种，一种是软连接，类似于快捷方式，另一种是硬链接，指向磁盘的绝对位置
+rwx三组，所有者，所有者所再用户组，其他用户
+x是执行
+1:49:00没听到
+
+
+压缩命令，加压缩命令
+.zip .gz .bz2 .tar.gz .tar.bz2
+
+关机重启
+shutdown -c 取消关机
+-h 关机
+-r 重启
+-r 06:00 控制时间
+
+init 0 关机
+init 6 重启
+
+用户登录日志
+last  所有登录记录
+lastb 所有失败的登录记录
+如果有黑客的登录，根据TTY，找到pid，kill
+
+
+发信号
+kill pid
+kill是在发信号
+
+pkill -9 pid 强杀
+
+
+
+
+shell，黑窗口
+shell脚本文件，以.sh为后缀
+sh文件需要获取x权限，rwx的x，可执行权限
+2:10:00 写脚本
+
+
+
+第三节：
+持续部署
+20:12:00
+运维用的：devops
+
+持续集成需求
+jenkins是ci平台，
+
+require a,b,c,于是我把所有abc都绑定到一个js里，然后就形成了bandle.js
+
+21:40:00
+amd,cmd
+
+
+
+什么是持续集成？
+ci，本机写代码，上传到svn或git，编译，测试，到开发的机器上，再到测试的机器上
+持续交付，cd，
+持续部署，cd，很少，提交代码到发布线上是全自动的
+Jenkins可以给微信发消息
+需要的工具
+1.统一代码仓库通过分支管理合并主干SVN。
+2.自动化构建工具，编译、部署、测试、监控、本机、开发上线环境。
+FIS3/Webpack/jdists/package.json/chai/supertest/mocha/selenium-webdriver
+3.持续集成平台。Jenkins、Travis CI
+4.部署工具。rsync、shelljs、yargs
+5.运营同学有权限操作运营页面保存即可上线。
+
+什么是统一代码仓库
+svn为例，别的我都明白
+tag，为了回滚
+没人能动trunk，主分干
+
+写shell
+
+
+什么是前端工程化
+什么是自动化构建
+解放更多劳动力的自动化
+
+
+
+
+
+
+
+
+
+
+

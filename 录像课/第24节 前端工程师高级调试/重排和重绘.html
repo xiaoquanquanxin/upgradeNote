@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width,user-scalable=no ">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        li {
+            box-sizing: border-box;
+            width: 100%;
+            border: 1px solid;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        section {
+            margin-top: 100px;
+            height: 200px;
+            overflow: auto;
+            border-bottom: 1px solid crimson;
+        }
+
+        div {
+            position: relative;
+        }
+
+        ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <div>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>5</li>
+            <li>5</li>
+            <li>5</li>
+        </ul>
+    </div>
+</section>
+<script>
+	let arr = [];
+	for (let i = 0; i < 22; i++) {
+		arr.push(i);
+	}
+	let div = document.getElementsByTagName('div')[0];
+	let section = document.getElementsByTagName('section')[0];
+	section.onscroll = function (e) {
+		let scrollTop = parseInt(section.scrollTop);
+		let offset = parseInt(scrollTop / 30);
+		div.style.height = 30 * arr.length + 'px';
+		if (offset > arr.length - 8) {
+			return
+		}
+		console.log(offset);
+		ul.style.transform = 'translateY(' + offset * 30 + 'px)';
+		render(offset);
+	};
+	let ul = document.getElementsByTagName('ul')[0];
+	let li = document.getElementsByTagName('li');
+	render(0);
+
+	setInterval(function () {
+
+//		console.log(arr.length);
+//		arr.push(arr.length);
+	}, 1000);
+
+	function render(offset) {
+		for (let i = 0; i < li.length; i++) {
+//			console.log(i+offset);
+			li[i].innerHTML = arr[i + offset];
+		}
+	}
+</script>
+</body>
+</html>

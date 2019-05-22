@@ -1,0 +1,11 @@
+audtis是chrome的性能插件
+1.audits面板
+2.performanceTracer
+3.page speed
+4.performance.timing ，可以捕捉整个网页的性能节点
+
+
+audits面板：不能用
+performanceTracer:一个node的包
+
+

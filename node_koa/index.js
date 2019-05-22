@@ -6,7 +6,7 @@ const app = new Koa();
 app.use(async (ctx, next) => {
 	await next();
 	const rt = ctx.response.get('X-Response-Time');
-	console.log(`${ctx.method} ${ctx.url} - ${rt}`);
+	// console.log(`${ctx.method} ${ctx.url} - ${rt}`);
 	// console.log(2);
 });
 
@@ -26,7 +26,14 @@ app.keys = new KeyGrip(['im a newer secret'], 'sha256');
 // app.keys = ['im a newer secret'];
 app.use(async ctx => {
 	ctx.body = 'wsss';
+	// console.log(ctx.request.url);
 	ctx.cookies.set('name', 'aaaaaa', {signed: true});
+	// console.log(ctx.cookies.get('name'));
+	// console.log(ctx.request.path)
+	//  根据ctx.request.path做路由
+	ctx.response.status = 404;
+	ctx.response.body = '艹了';
+	console.log(ctx.response)
 });
 
 //  错误处理

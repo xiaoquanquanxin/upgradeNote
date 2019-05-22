@@ -1,0 +1,21 @@
+缓存的过程
+html，css，js，图片都会缓存
+浏览器自身如果有缓存，就会从缓存去读取数据
+如果这个数据没有过期，就直接用这个数据
+如果是过期了
+先看有没有etag这个东西，浏览器向服务器发送一个请求的报头，匹配资源是否过期
+服务器决策，如果匹配，code是304，从缓存读取
+如果没有匹配，code是200
+下次请求就有Etag了
+如果没有etag，就用last-modified策略
+如果etag和last-modified都没有，就向web服务器发送请求，相当于第一次拿数据
+
+nginx部分：
+vi nginx.conf
+可以设置项：
+# gzip on/off
+# etag on/off
+# expires 30d   过期时间
+add_header Cache-Control no-cache
+为什么要设置这个？因为他和last-modified有冲突？
+
