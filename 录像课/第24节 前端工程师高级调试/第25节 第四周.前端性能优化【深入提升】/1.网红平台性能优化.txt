@@ -1,0 +1,17 @@
+实现方式：
+1.polling，轮询，ajax           缺点：性能差，浪费资源
+2.long polling，comet，长连接    缺点：浪费资源，占用链接，不释放
+3.flash里面也是socket
+4.web socket
+
+问题：
+1.1和2都是基于http的，实现都是要客户端去发起，而理想情况下，应该是服务端推送
+2.数据流只是一个方向的，总是从客户端发请求，从服务端返回
+3.http延迟
+4.ajax流量大，长连接还好点，但不够及时
+
+看web socket
+看web socket
+看web socket
+web socket还是一个http请求，多了一些字段，upgrade,sec-websocket-accept等
+保持连接不中断，

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>聊天室</title>
+</head>
+<body>
+<h4>聊天室</h4>
+<input type="text" id="text">
+<button id="button">发送</button>
+<br>
+<section id="section"></section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<script>
+	window.onload = function () {
+		const socket = io.connect('http://localhost:4000/');
+		socket.on('open', function () {
+			console.log('前端open');
+//			socket.send('前端连接成功');
+			$('#button').on('click', function () {
+				socket.send($('#text').val());
+			});
+		});
+		socket.on('james', function (msg) {
+			console.log('前端接收到', msg);
+			$('#section').append('<div>' + msg + '</div>');
+		});
+
+	}
+
+</script>
+</body>
+</html>
