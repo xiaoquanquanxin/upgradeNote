@@ -7,3 +7,6 @@ https://github.com/xiaoquanquanxin/ES6.git
 3.polyfill是一个插件，提供浏览器需要支持但没有支持的功能
 4.polyfill是应用在API上的shim，先判断浏览器是否支持某API，如果不支持，就加载polyfill
 5.css polyfill
+
+
+
