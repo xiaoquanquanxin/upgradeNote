@@ -1,0 +1,75 @@
+渲染的三个阶段：
+layout,paint,composite layers
+不同的css会触发不同的阶段
+触发的阶段越靠前，渲染的代价就越高
+
+硬件加速（GPU加速）
+CPU传输到GPU的一个位图
+CPU计算能力强，CPU吞吐量大
+CPU负责操作系统和应用程序
+GPU负责与显示相关的数据处理
+GPU的活，CPU都可以干，但是效率低下
+
+layers：
+layers是一个图层，浏览器会根据css属性生成图层
+
+硬件加速原理：
+将layers作为材质上传至GPU，当改变某系属性值的时候，会直接通知GPU对layer做变换
+
+layer创建标准：
+某些ccs属性，transform
+video，canvas，flash，filters，z-index大于某个相邻节点的元素
+
+
+某个移动的案例：animate top
+1.js控制，定时器
+CPU和GPU都有自己的线程
+首先CPU进行元素的布局，然后将其作为位图传到GPU内存中
+主线程继续跑，根据定时器
+重新布局，重新生成layer，重新同步位图到合成器，传到GPU
+直到结束
+2.animation transform
+布局，生成位图，同步到合成器，传到GPU内存
+transform会告诉合成器怎么做
+不需要重排，重绘，只要合成器生成最后的结果
+
+节约了的时间：
+layout ，paint
+CPU向GPU传输位图的时间，他只传递第一次
+
+
+完美的动画：
+setTimeout不够精确
+eg，ie8以前的版本，更新定时器的间隔是15.6ms，而不是1ms
+对于60帧 = 1/60 = 16.6ms来说，需要两个时间间隔来触发
+这就多出了15.6 * 2 - 16.6 = 14ms左右的时间
+
+requestAnimationFrame
+定义绘制每一帧之前的工作，进行推迟执行
+把element.style.height = xxx卸载requestAnimateFrame回调里
+requestAnimationFrame(function(){
+    //  to something xxx
+})
+
+
+触发layout条件：
+css设置值
+读取位置、大小相关的值
+
+触发paint
+重排
+颜色
+优化：
+gif图的display设置为none
+减少大范围的paint，生成独立的layer
+
+
+
+
+
+
+
+
+
+
+
