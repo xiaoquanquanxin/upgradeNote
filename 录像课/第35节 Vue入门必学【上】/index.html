@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <abc v-for="(item ,i ) in list" v-bind:item="{item:item,index:i}"></abc>
+
+    <!--    <div v-for="item in list" @click="wai(item)">{{item.name}}</div>-->
+</div>
+<template id="tmp">
+    <div @click="done(item)">
+        <div><span>{{item.name}}</span>得分<span>{{item.score}}</span></div>
+        <input type="text" v-my-directive="item" v-model="item.item.name + item.item.name">
+    </div>
+</template>
+<!--<script src="https://v1.vuejs.org/js/vue.js"></script>-->
+<script src="https://cn.vuejs.org/js/vue.js"></script>
+<script>
+    Vue.directive('my-demo', function (el, binding, vonde) {
+        console.log(el, binding, vonde);
+        console.log('默认是bind');
+    });
+    Vue.directive('my-directive', {
+        bind(a, b, vnode) {
+            console.log();
+            let style = a.style;
+            style.color = 'red';
+            // a.value = b.value.index;
+        },
+        inserted(a, b) {
+            console.log();
+            if (b.value.index === 0) {
+                a.focus();
+            }
+        },
+        componentUpdated(a) {
+            console.log(a)
+        },
+        unbind(a) {
+            console.log(a)
+        },
+    })
+    Vue.component('abc', {
+        template: '#tmp',
+        props: ['item'],
+        methods: {
+            done: function (item) {
+                console.log(item);
+            }
+        }
+    });
+    let vm = new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                list: [
+                    {score: 0, name: '慕斯',},
+                    {score: 0, name: '慕斯',},
+                    {score: 0, name: '慕斯',},
+                ]
+            }
+        },
+        methods: {
+            wai: function (item) {
+                this.list.$remove(item);
+            }
+        }
+    })
+</script>
+</body>
+</html>
