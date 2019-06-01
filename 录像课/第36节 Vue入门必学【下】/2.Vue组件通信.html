@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件通信</title>
+</head>
+<body>
+<div id="app">
+    <my-parent :message="message"></my-parent>
+</div>
+<template id="children">
+    <div>
+        <h4 v-text="message" @click="passData(new Date())"></h4>
+        <div v-text="passmsg"></div>
+    </div>
+</template>
+<template id="parent">
+    <div>
+        <h3 v-text="message"></h3>
+        <my-children :message="message"></my-children>
+        <my-children :message="message"></my-children>
+        <my-children :message="message"></my-children>
+        <p v-text="childrenData"></p>
+    </div>
+</template>
+<script src="https://vuejs.org/js/vue.js"></script>
+<script>
+    Vue.component('my-children', {
+        data() {
+            return {
+                passmsg:this.passmsg
+            }
+        },
+        inject: ['passmsg'],
+        props: ['message'],
+        template: '#children',
+        methods: {
+            passData(val) {
+                bridge.$emit('myevent', val);
+            },
+        }
+    });
+    Vue.component('my-parent', {
+        data() {
+            return {
+                childrenData: null
+            }
+        },
+        provide:{
+            passmsg:'我是james',
+        },
+        props: ['message'],
+        template: '#parent',
+        mounted() {
+            bridge.$on('myevent', val => {
+                this.childrenData = val;
+            })
+        }
+    });
+
+    //  中央总线,传值方式
+    let bridge = new Vue();
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            message: '慕斯',
+        },
+    });
+</script>
+</body>
+</html>
