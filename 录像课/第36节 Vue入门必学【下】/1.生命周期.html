@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生命周期</title>
+</head>
+<body>
+<div id="app">
+    <p v-text="msg"></p>
+</div>
+<script src="https://vuejs.org/js/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data() {
+            return {
+                msg: 1234
+            }
+        },
+        beforeCreate() {
+            console.log(this.msg);
+            console.log('beforeCreate:最早,还没有观察数据');
+            console.log('observe data,观察数据');
+            console.log('init event,初始化事件');
+        },
+        created() {
+            console.info('create:实例创建完成，data还未被渲染到模板');
+            this.msg = 'created';
+            console.log('有没有el表达式,有则编译模板');
+            console.log('如果没有，等待到mounted执行后');
+        },
+        beforeMount() {
+            console.log('beforeMount');
+            console.log('创建vm.$el,替换原生element');
+        },
+        mounted() {
+            console.log('数据已经挂在到模板上');
+            console.log(this.msg);
+            this.msg = 'mounted';
+        },
+        beforeUpdate() {
+            console.log('beforeUpdate:当数据变化时');
+            console.log('virtual dom re-render and patch');
+        },
+        updated() {
+            console.log('实例更新');
+            console.log(this.msg)
+        },
+        beforeDestroy() {
+            console.log('beforeDestroyed');
+        },
+        destroyed() {
+            console.log('销毁');
+        }
+    });
+    setTimeout(function () {
+        vm.$destroy();
+    }, 1)
+
+</script>
+</body>
+</html>
