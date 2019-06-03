@@ -5,7 +5,6 @@
     <title>2.Webpack入门介绍</title>
 </head>
 <body>
-
 <p>模块化:</p>
 <ol>
     <li>module是将系统分离成独立功能部分的方法,严格定义模块接口,模块之间局域透明性</li>
@@ -29,7 +28,8 @@
     <li>requireJS /amd/cmd</li>
     <li>es6的module</li>
 </ol>
-<p>amd与cmd的区别: <a href="https://www.zhihu.com/question/20351507?sort=created">https://www.zhihu.com/question/20351507?sort=created</a>
+<p>amd与cmd的区别: <br><a href="https://www.zhihu.com/question/20351507?sort=created">https://www.zhihu.com/question/20351507?sort=created</a><br>
+    <a href="https://github.com/seajs/seajs/issues/277">https://github.com/seajs/seajs/issues/277</a>
 </p>
 <ol>
     <li>amd提前加载,cmd延迟加载,as lazy as possible</li>
@@ -42,5 +42,27 @@
         console.log(a, b);
     });
 </script>
+<h3>为什么用webpack?因为vue,react火</h3>
+<ol>
+    <li>webpack和vue,react契合</li>
+    <li>编译后的文件会生成sourcemap,a.js,b.js合并成c.js,能够动态映射到文件的地址</li>
+</ol>
+<p>webpack推崇万物皆模块,有模板,有js,css,webpack的工作是把它们划分,编译成一个结构划分</p>
+<ol>
+    <li>拆分依赖,按需加载</li>
+    <li>快速初始化</li>
+    <li>所有资源都是模块</li>
+    <li>第三方库模块化</li>
+    <li>自定义模块化打包</li>
+    <li>适合大型项目</li>
+</ol>
+<p>configuration</p>
+<ol>
+    <li>entry:入口</li>
+    <li>output:编译后的资源</li>
+    <li>module:资源管理</li>
+    <li>resolve:配置资源别名,扩展名等</li>
+    <li>plugins:插件,比loader更强大,比如生成的css,js插入到html中</li>
+</ol>
 </body>
 </html>
