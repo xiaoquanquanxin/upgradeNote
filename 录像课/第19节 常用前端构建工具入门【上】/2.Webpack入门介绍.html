@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.Webpack入门介绍</title>
+</head>
+<body>
+
+<p>模块化:</p>
+<ol>
+    <li>module是将系统分离成独立功能部分的方法,严格定义模块接口,模块之间局域透明性</li>
+    <li>模块化形成闭包,不会被外界改写</li>
+</ol>
+<script>
+    let moduleA = function () {
+        let a, b;
+        return {
+            something: function (c) {
+                return a + b + c
+            }
+        }
+    }
+
+
+</script>
+<p>模块化的实现方式:</p>
+<ol>
+    <li>commonJS</li>
+    <li>requireJS /amd/cmd</li>
+    <li>es6的module</li>
+</ol>
+<p>amd与cmd的区别: <a href="https://www.zhihu.com/question/20351507?sort=created">https://www.zhihu.com/question/20351507?sort=created</a>
+</p>
+<ol>
+    <li>amd提前加载,cmd延迟加载,as lazy as possible</li>
+    <li>amd的API能以一代多,cmd的API讲究功能划分明确</li>
+    <li>amd推崇依赖前置,cmd推崇依赖就近</li>
+</ol>
+<script title="amd实现" src="require.v2.3.6.js"></script>
+<script>
+    require(['https://code.jquery.com/jquery-1.11.3.js', 'http://www.jq22.com/demo/Datepicker20161107/js/foundation-datepicker.js'], function (b, a) {
+        console.log(a, b);
+    });
+</script>
+</body>
+</html>
