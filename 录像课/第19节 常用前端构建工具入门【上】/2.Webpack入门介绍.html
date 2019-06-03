@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>2.Webpack入门介绍</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 <body>
+
 <p>模块化:</p>
 <ol>
     <li>module是将系统分离成独立功能部分的方法,严格定义模块接口,模块之间局域透明性</li>
@@ -19,8 +24,6 @@
             }
         }
     }
-
-
 </script>
 <p>模块化的实现方式:</p>
 <ol>
@@ -38,8 +41,11 @@
 </ol>
 <script title="amd实现" src="require.v2.3.6.js"></script>
 <script>
-    require(['https://code.jquery.com/jquery-1.11.3.js', 'http://www.jq22.com/demo/Datepicker20161107/js/foundation-datepicker.js'], function (b, a) {
-        console.log(a, b);
+    require(['https://code.jquery.com/jquery-1.11.3.js',
+        'https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.js'
+    ], function ($, bootstrap) {
+        console.log($, bootstrap);
+        console.log(window.$('').modal('hide'));
     });
 </script>
 <h3>为什么用webpack?因为vue,react火</h3>
@@ -48,6 +54,7 @@
     <li>编译后的文件会生成sourcemap,a.js,b.js合并成c.js,能够动态映射到文件的地址</li>
 </ol>
 <p>webpack推崇万物皆模块,有模板,有js,css,webpack的工作是把它们划分,编译成一个结构划分</p>
+<h2>webpack1.0</h2>
 <ol>
     <li>拆分依赖,按需加载</li>
     <li>快速初始化</li>
@@ -60,9 +67,40 @@
 <ol>
     <li>entry:入口</li>
     <li>output:编译后的资源</li>
-    <li>module:资源管理</li>
-    <li>resolve:配置资源别名,扩展名等</li>
     <li>plugins:插件,比loader更强大,比如生成的css,js插入到html中</li>
+    <li>resolve:配置资源别名,扩展名等[貌似不重要?就是require的时候不用指明扩展名了]</li>
+    <li>module:资源管理</li>
 </ol>
+<p>loader载入方式</p>
+<ol>
+    <li>configuration</li>
+    <li>command line</li>
+    <li>require的时候</li>
+</ol>
+<p>webpack优化</p>
+<ol>
+    <li>别名减少长度</li>
+    <li>忽略解析部分模块</li>
+    <li>将模块暴露到全局,ProvidePlugin,或expose-loader</li>
+    <li>对公共文件的提取,自带的webpack.optimize.CommonsChunkPlugin</li>
+    <li>配置全局开关</li>
+    <li>单独打包css,ExtractTextPlugin</li>
+</ol>
+<h2>webpack2.0</h2>
+<p>变化</p>
+<ol>
+    <li>es6,自动babel,import</li>
+    <li>System.import.then</li>
+    <li>tree-shaking,忽略没人用的代码</li>
+    <li>命令行指定dev,prov</li>
+    <li>统一配置选项</li>
+    <li>loader的配置更全面</li>
+    <li>压缩代码,</li>
+
+</ol>
+<script>
+    //  todo
+    //  http://webpack.github.io/docs/changelog
+</script>
 </body>
 </html>
