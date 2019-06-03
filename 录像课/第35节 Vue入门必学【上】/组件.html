@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <anchored-heading :level="1">??</anchored-heading>
+    <anchored-heading :level="2">??</anchored-heading>
+    <anchored-heading :level="3">??</anchored-heading>
+</div>
+<!--<script src="https://v1.vuejs.org/js/vue.js"></script>-->
+<script src="https://cn.vuejs.org/js/vue.js"></script>
+<script>
+    Vue.component('anchored-heading', {
+        render: function (createElement) {
+            return createElement(
+                    'h' + this.level,   // 标签名称
+                    this.$slots.default // 子节点数组
+            )
+        },
+        props: {
+            level: {
+                type: Number,
+                required: true
+            }
+        }
+    })
+    let vm = new Vue({
+        el: '#app'
+    });
+
+</script>
+</body>
+</html>
