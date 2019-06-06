@@ -7,11 +7,11 @@ ls -al  看到当前目录的权限
 安装的时候勾选图形界面才有
 
 
-touch index.js  创建js
+touch sum.js  创建js
 视频第26:20s
 从index.js退出
 是:wq,冒号double u Q
 
-cat index.js    查看js
+cat sum.js    查看js
 
 

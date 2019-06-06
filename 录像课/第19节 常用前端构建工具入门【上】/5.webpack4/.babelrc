@@ -1,0 +1,12 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "option": true,
+        "modules": false
+      }
+    ]
+  ],
+  "comments": false
+}
