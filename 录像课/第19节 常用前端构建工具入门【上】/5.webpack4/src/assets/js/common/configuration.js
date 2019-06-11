@@ -130,5 +130,6 @@ const defaultImageList = {
 
 
 export default {
-    imageList, defaultImageList
+    // imageList,
+    defaultImageList
 }
