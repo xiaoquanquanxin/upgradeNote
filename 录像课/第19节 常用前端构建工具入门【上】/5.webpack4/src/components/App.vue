@@ -1,14 +1,15 @@
 <template>
-	<div class="hello">123
+	<div class="hello">
 		<h1>{{ msg }}</h1>
-<!--		<BusinessTop/>-->
+		<BusinessTop/>
 	</div>
 </template>
 <script>
-    import BusinessTop from './BusinessTop'
+    import BusinessTop from './BusinessTop/index.vue'
+
 
     export default {
-        name: 'HelloWorld',
+        name: 'App',
         template: BusinessTop,
         components: {
             BusinessTop

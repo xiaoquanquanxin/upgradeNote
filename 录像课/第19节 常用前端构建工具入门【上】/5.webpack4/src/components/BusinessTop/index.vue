@@ -1,13 +1,22 @@
 <template>
-	<div>{{msg}}</div>
+	<div>{{msg}}
+	<p v-text="txt"></p>
+	</div>
 </template>
 
 <script>
-    import index from 'index';
-
-    export {index}
+    export default {
+        name: 'BusinessTop',
+        data() {
+            return {
+                msg: '这是BusinessTop',
+	            txt:'businessTop'
+            }
+        }
+    }
 </script>
 
-<style scoped>
-	@import "index.css";
+<style>
+	@import "./index.css";
+
 </style>

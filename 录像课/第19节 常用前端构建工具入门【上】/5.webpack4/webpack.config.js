@@ -42,7 +42,14 @@ module.exports = {
                 test: /\.js$/,
                 use: ['babel-loader'],
                 exclude: '/node_moduels/'
-            }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'vue-style-loader',
+                    'css-loader'
+                ],
+            },
         ]
     },
     plugins: [
