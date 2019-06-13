@@ -1,0 +1,10 @@
+faceBook开发的一套用于构建用户界面的库,作为纯粹的view
+使用virtual-dom,是一个虚拟的dom,是一个js对象,用js构建dom,每次分析这个virtual-dom,然后渲染到页面上
+virtual-dom好处是快速,
+监听virtual-dom的数据变化,绘制到页面
+
+传入属性参数,构建virtual-dom,状态对应内容
+
+jsx是react定义的一种javascript的语法扩展,类似于xml
+jsx是可选的,js也是可以编写react应用的,jsx更方便
+
