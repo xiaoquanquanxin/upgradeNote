@@ -25,14 +25,17 @@
     "webpack": "^4.33.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.2",
-    "webpack-manifest-plugin": "^2.0.4"
+    "webpack-manifest-plugin": "^2.0.4",
+    "webpack-dev-server": "^3.7.1",
+    "webpack-visualizer-plugin": "^0.1.11",
+    "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
     "jquery": "^3.4.1",
+    "mui": "0.0.1",
+    "polyfill": "^0.1.0",
+    "swiper": "^4.5.0",
     "vue": "^2.6.10",
-    "vue-resource": "^1.5.1",
-    "vue-template-compiler": "^2.6.10",
-    "webpack-dev-server": "^3.7.1",
-    "webpack-visualizer-plugin": "^0.1.11"
+    "vue-resource": "^v0.7.0"
   }
 }

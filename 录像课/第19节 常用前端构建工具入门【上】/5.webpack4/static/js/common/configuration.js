@@ -129,7 +129,10 @@ const defaultImageList = {
 };
 
 
-export default {
-    // imageList,
-    defaultImageList
+export {
+    imageList,
+    defaultImageList,
+    pageList,
+    buriedList,
+    plateList
 }

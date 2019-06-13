@@ -73,7 +73,13 @@ module.exports = {
             Vue: ['vue/dist/vue.esm.js', 'default'],
             $: 'jquery',
             jQuery: 'jquery',
+            polyfill: 'polyfill',
+            mui: 'mui',
+            myLayer: path.resolve(__dirname,'static/js/common_resources/layer.min'),
+            configuration: path.resolve(__dirname, 'static/js/common/configuration'),
+            common: path.resolve(__dirname, 'static/js/common/common'),
         }),
+
 
         //  热更新
         new webpack.HotModuleReplacementPlugin(),
@@ -91,7 +97,7 @@ module.exports = {
                 commons: {
                     name: "commons",
                     chunks: "initial",
-                    // minChunks: 2
+                    minChunks: 2
                 }
             }
         }
