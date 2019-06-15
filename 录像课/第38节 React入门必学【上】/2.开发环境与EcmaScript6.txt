@@ -1,0 +1,5 @@
+需要配置的东西
+jsxhint
+修改emmet兼容jsx文件
+jsFromat格式化js代码
+编译jsx
