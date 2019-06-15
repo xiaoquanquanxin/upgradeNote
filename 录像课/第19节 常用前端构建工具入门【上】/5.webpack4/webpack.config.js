@@ -15,7 +15,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 console.log('執行webpack.config.js --------------------------------------------- webpack.config.js執行')
 module.exports = {
     entry: {
-        app: path.resolve(__dirname, 'src/index.js'),
+        app: path.resolve(__dirname, 'src/iii.js'),
     },
     output: {
         filename: `[name].bundle.js`,
@@ -58,8 +58,8 @@ module.exports = {
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
             title: +Math.random() + '管理输出管理输出管理输出管理输出',
-            filename: 'index.html',
-            template: 'index.html',
+            filename: 'iii.js.html',
+            template: 'iii.js.html',
             inject: true
         }),
         new ManifestPlugin({

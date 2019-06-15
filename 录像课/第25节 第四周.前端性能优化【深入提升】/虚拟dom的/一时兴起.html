@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+    <title>飞机的那个，使用virtual-dom，transform</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: lightgoldenrodyellow;
+        }
+
+        #airplane {
+            transform: translateX(10px) translateY(500px);
+            background-image: url("airplane.png");
+            width: 100px;
+            height: 100px;
+        }
+
+        .bullet {
+            width: 5px;
+            height: 29px;
+            background-image: url("bullet.jpg");
+
+        }
+
+        .position-abs {
+            position: absolute;
+        }
+
+        .bgs-contain {
+            background-size: contain;
+        }
+    </style>
+</head>
+<body>
+<div class="bullet position-abs bgs-contain"></div>
+<script>
+    let script = document.createElement('script');
+    script.src = 'iii.js.js?v=' + Math.random();
+    document.head.append(script);
+</script>
+</body>
+</html>

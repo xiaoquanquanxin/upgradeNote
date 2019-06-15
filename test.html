@@ -1,0 +1,51 @@
+<script>
+	function P(fn) {
+		let obj = {};
+		let _data = null;
+		obj.then = function (tfn) {
+			setTimeout(function () {
+				tfn(_data)
+			}, 1110);
+		};
+		fn(function (data) {
+			_data = data;
+		});
+		return obj;
+	}
+
+	let p = new P(function (res, rej) {
+		res(123)
+	});
+	console.log(p);
+	p.then(function (data) {
+		console.log(data)
+	})
+</script>
+
+<script>
+	function PP() {
+
+	}
+
+	let pp = new PP();
+	console.log(pp.__proto__.__proto__.constructor.constructor);        //  Function
+	console.log(pp.__proto__.__proto__.constructor.__proto__);          //  function()native
+	console.log(PP.constructor);
+	console.log(PP.__proto__);                                          //  function native
+	console.log(PP.__proto__.constructor);                              //  Function
+	console.log(PP.__proto__.__proto__);                                //  Object
+</script>
+
+<script>
+	(function () {
+		return
+
+		for (let i = (setTimeout(function () {
+			console.log('a', i);
+		}, 1111), 0); setTimeout(() => console.log('b', i), 1111), i < 2; i++) {
+
+			i++;
+		}
+	}());
+
+</script>

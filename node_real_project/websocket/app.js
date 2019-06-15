@@ -4,7 +4,7 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 app.use('/', function (req, res) {
-	res.sendfile('index.html');
+	res.sendfile('iii.js.html');
 });
 
 io.on('connection', function (socket) {

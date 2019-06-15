@@ -23,7 +23,7 @@ app.get('/render', function (req, res) {
 //  静态资源
 app.use(express.static('public'));
 app.get('/static', function (req, res) {
-	res.sendFile(__dirname + "/views/" + "index.html");
+	res.sendFile(__dirname + "/views/" + "iii.js.html");
 });
 //  表单提交的位置
 //  需要body-parser包
