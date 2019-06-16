@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "test": "jest  ",
+    "lint": "tslint --project tsconfig.json -c  tslint.json 'src/**/*.ts'"
+  }
+}
