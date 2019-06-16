@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "jest  ",
+    "test": "jest   --reporter default jest-stare ",
     "lint": "tslint --project tsconfig.json -c  tslint.json 'src/**/*.ts'"
   }
 }

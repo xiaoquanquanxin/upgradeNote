@@ -39,3 +39,26 @@ npm install --save-dev @testing-library/react
 
 类型推导：
 a:number|string
+
+
+
+报表：
+npm install --save-dev jest-stare
+
+
+服务端测试
+axios
+
+
+
+
+
+
+
+
+
+
+
+
+
+

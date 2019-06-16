@@ -4,6 +4,7 @@
     "tslint-react"
   ],
   "rules": {
+    "no-any": true,
     "quotemark": [
       true,
       "single",
