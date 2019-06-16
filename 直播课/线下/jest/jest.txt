@@ -1,0 +1,41 @@
+webpack打包：
+1,区分开发环境
+src文件：
+react vue swig
+文件夹划分：
+components，pages
+配置文件：
+loader plugin 基于优化
+
+上限环境
+md5，多线程压缩
+
+注意：
+打包文件的大小
+-----------------------------------------------------------------------------------
+
+npm install --save-dev @types/react
+jest
+npm install --save-dev jest
+
+tsx需要tsconfig，根据官方文档去填写options
+
+npm install --save-dev typescript
+npm install -g tslint
+npm install --save-dev tslint
+为tslint加：
+npm install tslint-config-airbnb --save-dev
+为单元测试添加
+npm install --save-dev @types/jest
+
+npm install --save-dev tslint-react
+
+npm install --save-dev @testing-library/react
+
+设置tsconfig.json的写入
+
+--------------------------
+类型推断：
+
+类型推导：
+a:number|string
