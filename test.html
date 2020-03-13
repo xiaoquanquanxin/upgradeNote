@@ -1,51 +1,84 @@
+<meta charset="UTF-8">
 <script>
-	function P(fn) {
-		let obj = {};
-		let _data = null;
-		obj.then = function (tfn) {
-			setTimeout(function () {
-				tfn(_data)
-			}, 1110);
-		};
-		fn(function (data) {
-			_data = data;
-		});
-		return obj;
-	}
+    (function () {
+        return
 
-	let p = new P(function (res, rej) {
-		res(123)
-	});
-	console.log(p);
-	p.then(function (data) {
-		console.log(data)
-	})
+        function SymbolFor() {
+            return Symbol.for('---');
+        }
+
+        function P(fn) {
+            let obj = {};
+            let _data = null;
+            let _error = null;
+            obj.then = function (_then) {
+                if (_data === SymbolFor()) {
+                    return this;
+                }
+                setTimeout(function () {
+                    _then(_data);
+                }, 1110);
+            };
+            obj.catch = function (_catch) {
+                if (_error === SymbolFor()) {
+                    return this;
+                }
+                setTimeout(function () {
+                    _catch(_error);
+                }, 1110);
+            };
+            fn(function (data) {
+                if (_data === SymbolFor()) {
+                    return;
+                }
+                _data = data;
+                _error = SymbolFor();
+            }, function (error) {
+                if (_error === SymbolFor()) {
+                    return;
+                }
+                _error = error;
+                _data = SymbolFor();
+            });
+            return obj;
+        }
+
+        let p = new P(function (res, rej) {
+            rej('错了');
+            res('ajax回来');
+        });
+        console.log('实例', p);
+        p.then(function (data) {
+            console.log(data)
+        }).catch(function (error) {
+            console.log(error);
+        })
+    }());
 </script>
-
 <script>
-	function PP() {
+    (function () {
+        return;
 
-	}
+        function PP() {
 
-	let pp = new PP();
-	console.log(pp.__proto__.__proto__.constructor.constructor);        //  Function
-	console.log(pp.__proto__.__proto__.constructor.__proto__);          //  function()native
-	console.log(PP.constructor);
-	console.log(PP.__proto__);                                          //  function native
-	console.log(PP.__proto__.constructor);                              //  Function
-	console.log(PP.__proto__.__proto__);                                //  Object
+        }
+
+        let pp = new PP();
+        console.log(pp.__proto__.__proto__.constructor.constructor);        //  Function
+        console.log(pp.__proto__.__proto__.constructor.__proto__);          //  function()native
+        console.log(PP.constructor);
+        console.log(PP.__proto__);                                          //  function native
+        console.log(PP.__proto__.constructor);                              //  Function
+        console.log(PP.__proto__.__proto__);                                //  Object
+    }());
 </script>
-
 <script>
-	(function () {
-		return
-
-		for (let i = (setTimeout(function () {
-			console.log('a', i);
-		}, 1111), 0); setTimeout(() => console.log('b', i), 1111), i < 2; i++) {
-
-			i++;
-		}
-	}());
-
+    (function () {
+        return;
+        for (let i = (setTimeout(function () {
+            console.log('a', i);
+        }, 1111), 0); setTimeout(() => console.log('b', i), 1111), i < 2; i++) {
+            i++;
+        }
+    }());
 </script>
