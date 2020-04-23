@@ -30,8 +30,11 @@ let e1: Color = Color.Blue;
 //  可以手动的指定成员的数值
 enum Color2 {
     Red = 5,
+    Red1,
     Green = 3,
     Redd,
+    Redd2,
+    Redd3,
     Reddd = 6
 }
 
@@ -55,8 +58,9 @@ let isNull: null = null;
 
 //  never,类型表示的是那些永不存在的值的类型
 //  never类型是那些总是会抛出异常,或根本就不会有返回值的函数表达式,或箭头函数表达式的返回值类型
-function error(message: string): never {
+function error(message: string): never | number {
     throw new Error(message);
+    return 1;
 }
 
 //  抛出异常后，没有打印
