@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" placeholder="输入" v-model="text" style="height: 2em;font-size: 1em;"/>
+    <br>{{text}}
+    <br>{{ text }}
+</div>
+<script>
+    const flushCallbacks = () => {console.log('我是callback');};
+    let counter = 1;
+    const textNode = document.createTextNode((counter));
+
+    const observer = new MutationObserver(flushCallbacks);
+    observer.observe(textNode, {
+        characterData: true
+    });
+    timerFunc = () => {
+        counter = (counter + 1) % 2;
+        textNode.data = String(counter);
+    };
+    timerFunc();
+    setTimeout(function (){
+        timerFunc();
+    });
+    setTimeout(function (){
+        timerFunc();
+    });
+</script>
+<!--<script src="./src/MVVM.js"></script>-->
+<!--<script src="./src/observe.js"></script>-->
+<!--<script src="./src/dep.js"></script>-->
+<!--<script src="./src/complie.js"></script>-->
+<!--<script src="./src/watcher.js"></script>-->
+<!--<script src="./src/batch.js"></script>-->
+<script>
+    // const vm = new MVVM({
+    //     el: 'app',
+    //     data: {
+    //         text: 123
+    //     }
+    // });
+    // console.log(mvvm, '🍉🍉');
+</script>
+</body>
+</html>
