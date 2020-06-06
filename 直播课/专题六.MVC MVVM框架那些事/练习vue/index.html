@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的vue</title>
+    <style>
+        * {
+            font-family: '微软雅黑', sans-serif;
+            font-size: 16px;
+            margin: 0;
+        }
+        
+        .wrapper {
+            display: none;
+        }
+        
+        .center, .center-inner, .left, .right {
+            height: 200px;
+        }
+        
+        .fl {
+            float: left;
+        }
+        
+        .fr {
+            float: right;
+        }
+        
+        .clearfix {
+            clear: both;
+        }
+        
+        .center {
+            width: 100%;
+        }
+        
+        .center-inner {
+            background: red;
+        }
+        
+        .left {
+            background: rgba(0, 128, 0, 0.12);
+        }
+        
+        .right {
+            background: yellow;
+        }
+        
+        .left {
+            width: 222px;
+            margin-left: -100%;
+        }
+        
+        .right {
+            width: 20%;
+            margin-left: -20%;
+        }
+        
+        .center-inner {
+            margin-left: 222px;
+            margin-right: 20%;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper clearfix">
+    <div class="center fl">
+        <div class="center-inner">c</div>
+    </div>
+    <div class="left fl">l</div>
+    <div class="right fr">r</div>
+</div>
+<div id="app">
+    <textarea v-model="xxx"></textarea>
+    <br>{{xxx}}
+    <br>{{xxx}}
+</div>
+<script src="scripts/index.js"></script>
+<script src="scripts/dep.js"></script>
+<script src="scripts/watcher.js"></script>
+<script src="scripts/compile.js"></script>
+<script src="scripts/observe.js"></script>
+<script>
+    const vm = new Vue({
+        el: 'app',
+        data: {
+            xxx: '784250',
+        }
+    });
+</script>
+<p>1.new Vue，传入data，element。</p>
+<p>2.针对数据，建立观察者；针对节点，重新编译，并与观察者做关联。</p>
+<p>3.观察者具有getter和setter方法，并且把key挂载到vm上，整个vue链路都是通过vm上挂载的key联通的。</p>
+<p>4.编译dom的过程，是将dom切割成最小单元，并对每个最小单元绑定一个哨兵watcher。</p>
+<p>5.因为对于每个不同的key，它们被使用的个数不一样，需要建立一个独立的list，管理哨兵watcher。</p>
+<p>6.当我触发key的setter的时候，会触发整个key的哨兵的list，从对整个key而进行更新。</p>
+<p></p>
+</body>
+</html>

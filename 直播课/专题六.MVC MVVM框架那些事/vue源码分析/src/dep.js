@@ -10,7 +10,7 @@ Dep.prototype.addSub = function (sub){
 };
 //  通知字段xxx下的所有人，更新watcher
 Dep.prototype.notify = function (){
-    console.log(this.subs);
+    // console.log(this.subs);
     this.subs.forEach(item => {
         item.update();
     });
