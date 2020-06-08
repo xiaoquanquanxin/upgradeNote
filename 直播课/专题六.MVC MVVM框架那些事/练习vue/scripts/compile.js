@@ -4,14 +4,14 @@ function Compile(vm, el){
 
 Compile.prototype = {
     compileElement(vm, el){
-        const fb = document.createDocumentFragment();
         let child = el.firstChild;
+        const fb = document.createDocumentFragment();
         while (child) {
             this.compileAttribute(vm, child);
             fb.appendChild(child);
             child = el.firstChild;
         }
-        return fb
+        return fb;
     },
     compileAttribute(vm, el){
         switch (el.nodeType) {

@@ -3,12 +3,12 @@ function Dep(){
 }
 
 Dep.prototype = {
-    addItem(item){
+    add(item){
         this.list.push(item);
     },
     notify(){
         this.list.forEach(item => {
-            item.update()
+            item.update();
         });
     }
 };

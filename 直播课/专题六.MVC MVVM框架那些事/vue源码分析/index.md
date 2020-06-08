@@ -73,8 +73,8 @@ vue源码，整个代码，都贯穿了vue实例。
 
 
 #### 2.nextTick的实现
-1.尝试适配的顺序：promise、mutationObserver、setImmediate、setTimeout，这就是为什么vue数据更新不会直接影响dom变化，因为vue的设计是不阻塞ui的。
-2.nextTick的执行原理：在第一步选择好的API里，封装一个用来触发的函数，然后触发这个函数，这个函数最后的回调中会执行真正改变数据的代码。
+1.尝试适配的顺序：promise、mutationObserver、setImmediate、setTimeout.     
+2.nextTick的执行原理：在第一步选择好的API里，封装一个用来触发的函数，然后触发这个函数，这个函数最后的回调中会执行真正改变数据的代码。这就是为什么vue数据更新不会直接影响dom变化，因为vue的设计是不阻塞ui的。      
 3.实际维护的list存放操作数据的过程->callbacks，这使得每次nextTick都从list中删除最先被推入到队列里到方法。
 
 
@@ -83,6 +83,8 @@ vue源码，整个代码，都贯穿了vue实例。
 1.创建一个text节点，监听节点的characterData属性，然后修改这个属性时，会触传入发MutationObserver的回调函数。
 
 
+####    4.array太深监听不到？
+1.切割了数组，变成了对象。
 
 
 

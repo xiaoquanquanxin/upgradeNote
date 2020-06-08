@@ -92,6 +92,18 @@
         }
     });
 </script>
+<script>
+    function callbackFn(){
+        console.log(new Date().toLocaleString());
+    }
+
+    const mo = new MutationObserver(callbackFn);
+    let index = 0;
+    const $element = document.createTextNode(index.toString());
+    mo.observe($element, {
+        characterData: true
+    });
+</script>
 <p>1.new Vue，传入data，element。</p>
 <p>2.针对数据，建立观察者；针对节点，重新编译，并与观察者做关联。</p>
 <p>3.观察者具有getter和setter方法，并且把key挂载到vm上，整个vue链路都是通过vm上挂载的key联通的。</p>
