@@ -83,6 +83,7 @@
 <script src="scripts/watcher.js"></script>
 <script src="scripts/compile.js"></script>
 <script src="scripts/observe.js"></script>
+<script src="scripts/batcher.js"></script>
 <script>
     const vm = new Vue({
         el: 'app',
@@ -97,6 +98,7 @@
 <p>4.编译dom的过程，是将dom切割成最小单元，并对每个最小单元绑定一个哨兵watcher。</p>
 <p>5.因为对于每个不同的key，它们被使用的个数不一样，需要建立一个独立的list，管理哨兵watcher。</p>
 <p>6.当我触发key的setter的时候，会触发整个key的哨兵的list，从对整个key而进行更新。</p>
-<p></p>
+<p>7.batcher计数器，用于存放同一个同步执行栈中的所有更新的数据，最后通过promise，mutationObserver，setImmediate，setTime统一处理。</p>
+<p>8.batcher的目的是为了不阻塞ui。</p>
 </body>
 </html>
